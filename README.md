@@ -1,50 +1,118 @@
-# Welcome to your Expo app 👋
+# FridgeFriend v2 🥗
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A smart kitchen companion app that connects to a Raspberry Pi 5 to track your fridge inventory, manage ingredients, and suggest recipes based on what you have.
 
-## Get started
+## Features
 
-1. Install dependencies
+- **Real-time Inventory Tracking**: Automatically tracks items going in and out of your fridge via Raspberry Pi
+- **Smart Expiration Alerts**: Get notified before food expires
+- **Recipe Suggestions**: Discover recipes based on available ingredients
+- **Shopping Lists**: Automatic shopping list generation based on low stock
+- **Category Management**: Organize items by categories (Vegetables, Dairy, Meat, etc.)
 
-   ```bash
-   npm install
-   ```
+## Tech Stack
 
-2. Start the app
+- **Frontend**: React Native + Expo
+- **Navigation**: Expo Router (file-based routing)
+- **Styling**: React Native StyleSheet with custom design system
+- **Backend Integration**: Raspberry Pi 5 (connection setup in progress)
+- **Platform**: iOS & Android
 
-   ```bash
-   npx expo start
-   ```
+## Getting Started
 
-In the output, you'll find options to open the app in a
+### Prerequisites
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- Node.js (v16 or higher)
+- npm or yarn
+- Expo CLI
+- Expo Go app on your phone (for testing)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Installation
 
-## Get a fresh project
-
-When you're ready, run:
-
+1. Clone the repository:
 ```bash
-npm run reset-project
+git clone https://github.com/Glebenator/ffv2.git
+cd ffv2
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Install dependencies:
+```bash
+npm install
+```
 
-## Learn more
+3. Start the development server:
+```bash
+npm start
+# or with tunnel for remote access
+npm run start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+4. Scan the QR code with:
+- iOS: Camera app
+- Android: Expo Go app
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Development Notes
 
-## Join the community
+**Expo Go Compatibility**: The app is designed to work with Expo Go for easy development. Some features like gradient backgrounds have been implemented using standard React Native styling to maintain compatibility.
 
-Join our community of developers creating universal apps.
+**For Custom Native Features**: If you need features like linear gradients, custom native modules, or Raspberry Pi Bluetooth integration, you'll need to create a development build:
+```bash
+eas build --profile development
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Design System
+
+### Colors
+- **Primary**: Mint Green (#10B981) - Fresh and healthy
+- **Secondary**: Orange (#F59E0B) - Appetizing and energetic
+- **Accent**: Blue (#3B82F6) - Trust and reliability
+- **Background**: Off-white (#FAFAF9) with white cards
+
+### Typography
+- Headers: Bold, rounded sans-serif
+- Body: Clean sans-serif
+- Numbers: Monospace (for quantities)
+
+## Project Structure
+
+```
+ffv2/
+├── app/                 # Main application screens
+│   ├── _layout.tsx     # Root layout configuration
+│   └── index.tsx       # Home/Landing page
+├── assets/             # Images, fonts, and other static assets
+├── constants/          # Theme, colors, and app constants
+│   └── Colors.ts       # Color palette and design tokens
+├── components/         # Reusable components (to be added)
+└── utils/             # Helper functions (to be added)
+```
+
+## Upcoming Features
+
+- [ ] Raspberry Pi connection setup
+- [ ] Barcode scanning for adding items
+- [ ] Voice input for hands-free operation
+- [ ] Meal planning calendar
+- [ ] Nutritional tracking
+- [ ] Multi-user household support
+- [ ] Export/Import shopping lists
+
+## Development
+
+### Building for Production
+
+```bash
+# Create a development build
+eas build --profile development
+
+# Create a production build
+eas build --profile production
+```
+
+## Contributing
+
+This is currently a private project. For access or contributions, please contact the repository owner.
+
+## License
+
+Private - All rights reserved
